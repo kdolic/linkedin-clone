@@ -6,9 +6,20 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { HeaderOption } from './HeaderOption';
+import { useDispatch } from 'react-redux';
+import { auth } from '../firebase/firebase';
+import { logout } from '../features/userSlice';
 
 const Header = () => {
+    const dispatch = useDispatch();
+
+    const logoutOfApp = () => {
+        dispatch(logout());
+        auth.signOut();
+    }
+
     return (
         <div className='header'>
             <div className='header_left'>
@@ -16,7 +27,7 @@ const Header = () => {
 
                 <div className='header_search'>
                     <SearchIcon />
-                    <input type='text' />
+                    <input placeholder='Search' type='text' />
                 </div>
             </div>
 
@@ -26,7 +37,8 @@ const Header = () => {
                 <HeaderOption Icon={BusinessCenterIcon} title='Jobs' />
                 <HeaderOption Icon={ChatIcon} title='Messaging' />
                 <HeaderOption Icon={NotificationsIcon} title='Notifications' />
-                <HeaderOption avatar='https://i.ibb.co/HtBVxqG/Professional-Photo-1.jpg' title='Me' />
+                <HeaderOption avatar={true}title='Me'  />
+                <HeaderOption Icon={ExitToAppIcon} title='Log Out' onClick={logoutOfApp} />
             </div>
         </div>
     )
