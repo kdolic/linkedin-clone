@@ -9,7 +9,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { HeaderOption } from './HeaderOption';
 import { useDispatch } from 'react-redux';
-import { auth } from '../firebase/firebase';
+import { auth } from './firebase';
 import { logout } from '../features/userSlice';
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='header_left'>
-                <img className='logo' src='https://www.flaticon.com/svg/vstatic/svg/1384/1384046.svg?token=exp=1612399393~hmac=f6dc187e88dbc4082c3ef267ea47adf9' alt='' />
+                <img className='logo' src='https://www.flaticon.com/svg/vstatic/svg/1384/1384046.svg?token=exp=1612399393~hmac=f6dc187e88dbc4082c3ef267ea47adf9' alt='logo' />
 
                 <div className='header_search'>
                     <SearchIcon />

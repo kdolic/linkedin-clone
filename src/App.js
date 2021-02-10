@@ -1,48 +1,46 @@
-import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import './css/App.css';
-import './css/Header.css'
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Feed from './components/Feed';
-import Login from './components/Login';
-import { selectUser } from './features/userSlice';
-import { auth } from './firebase/firebase';
-import {login, logout} from './features/userSlice';
+import React, { useEffect } from "react";
+import "./css/App.css";
+import Feed from "./components/Feed";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import { login, logout, selectUser } from "./features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Login from "./components/Login";
+import { auth } from "./components/firebase";
+import Widgets from "./components/Widgets";
 
-function App() {
-
-  const user = useSelector(selectUser)
+const App = () => {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    auth.onAuthStateChanged(userAuth => {
-      if(userAuth) {
-        // user is logged in
-        dispatch(login({
-          email: userAuth.user.email,
-          uid: userAuth.user.uid,
-          displayName: userAuth.displayName,
-          photoUrl: userAuth.photoURL,
-        }))
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoURL,
+          })
+        );
       } else {
-        // user is logged out
-        dispatch(logout())
+        dispatch(logout());
       }
-    })
-  }, [])
-
+    });
+  }, []);
+  
   return (
     <div className="app">
       <Header />
 
-      {!user ? ( 
+      {!user ? (
         <Login />
-       ) : (
-        <div className='app_body'>
+      ) : (
+        <div className="app_body">
           <Sidebar />
           <Feed />
-          {/* Widgets */}
+          <Widgets />
         </div>
       )}
     </div>
