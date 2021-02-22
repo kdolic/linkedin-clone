@@ -1,3 +1,14 @@
+# LinkedIn Clone 
+## Deployed via Firebase: https://linkedin-clone-ad6ac.web.app/
+## Tools/ Technologies:
+- 𝐽𝑎𝑣𝑎𝑆𝑐𝑟𝑖𝑝𝑡/𝐽SX
+- 𝑅𝑒𝑎𝑐𝑡
+- 𝑅𝑒𝑑𝑢𝑥
+- 𝐶𝑠𝑠
+- 𝑀𝑎𝑡𝑒𝑟𝑖𝑎𝑙𝑈𝐼
+- 𝐹𝑖𝑟𝑒𝑏𝑎𝑠𝑒 (𝐴𝑢𝑡ℎ𝑜𝑟𝑖𝑧𝑎𝑡𝑖𝑜𝑛 & 𝐷𝑒𝑝𝑙𝑜𝑦𝑚𝑒𝑛𝑡)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
